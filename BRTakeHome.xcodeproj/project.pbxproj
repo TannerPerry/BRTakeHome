@@ -18,11 +18,11 @@
 		7362300527B5F75E009C1936 /* LunchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7362300427B5F75E009C1936 /* LunchService.swift */; };
 		7362300727B5F86C009C1936 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7362300627B5F86C009C1936 /* ServiceLocator.swift */; };
 		7362300A27B602CD009C1936 /* LunchCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7362300927B602CD009C1936 /* LunchCollectionViewController.swift */; };
-		7362300C27B60363009C1936 /* LunchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7362300B27B60363009C1936 /* LunchPresenter.swift */; };
+		7362300C27B60363009C1936 /* RestaurantListViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7362300B27B60363009C1936 /* RestaurantListViewPresenter.swift */; };
 		7362300E27B60797009C1936 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7362300D27B60797009C1936 /* ImageService.swift */; };
 		7362301027B60FF0009C1936 /* RestaurantCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7362300F27B60FF0009C1936 /* RestaurantCollectionViewCell.swift */; };
 		7362301A27B62816009C1936 /* LunchPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7362301927B62816009C1936 /* LunchPresenterTests.swift */; };
-		7362302227B628A5009C1936 /* MockLunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7362302127B628A5009C1936 /* MockLunchView.swift */; };
+		7362302227B628A5009C1936 /* MockRestaurantListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7362302127B628A5009C1936 /* MockRestaurantListView.swift */; };
 		7362302427B62984009C1936 /* MockLunchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7362302327B62984009C1936 /* MockLunchService.swift */; };
 		7362302627B63114009C1936 /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7362302527B63114009C1936 /* TestUtils.swift */; };
 		7362302827B6342B009C1936 /* MockImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7362302727B6342B009C1936 /* MockImageService.swift */; };
@@ -65,12 +65,12 @@
 		7362300427B5F75E009C1936 /* LunchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchService.swift; sourceTree = "<group>"; };
 		7362300627B5F86C009C1936 /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		7362300927B602CD009C1936 /* LunchCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchCollectionViewController.swift; sourceTree = "<group>"; };
-		7362300B27B60363009C1936 /* LunchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchPresenter.swift; sourceTree = "<group>"; };
+		7362300B27B60363009C1936 /* RestaurantListViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListViewPresenter.swift; sourceTree = "<group>"; };
 		7362300D27B60797009C1936 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		7362300F27B60FF0009C1936 /* RestaurantCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCollectionViewCell.swift; sourceTree = "<group>"; };
 		7362301727B62816009C1936 /* BRTakeHomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BRTakeHomeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7362301927B62816009C1936 /* LunchPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchPresenterTests.swift; sourceTree = "<group>"; };
-		7362302127B628A5009C1936 /* MockLunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLunchView.swift; sourceTree = "<group>"; };
+		7362302127B628A5009C1936 /* MockRestaurantListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRestaurantListView.swift; sourceTree = "<group>"; };
 		7362302327B62984009C1936 /* MockLunchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLunchService.swift; sourceTree = "<group>"; };
 		7362302527B63114009C1936 /* TestUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
 		7362302727B6342B009C1936 /* MockImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImageService.swift; sourceTree = "<group>"; };
@@ -193,7 +193,7 @@
 		7362300327B5F72B009C1936 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
-				7362300B27B60363009C1936 /* LunchPresenter.swift */,
+				7362300B27B60363009C1936 /* RestaurantListViewPresenter.swift */,
 				738EDBFA27BA316600037BC0 /* MapViewPresenter.swift */,
 				738EDBFE27BA43C100037BC0 /* RestaurantDetailViewPresenter.swift */,
 				738EDC0627BA591D00037BC0 /* WebViewPresenter.swift */,
@@ -227,7 +227,7 @@
 		7362302027B6288E009C1936 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				7362302127B628A5009C1936 /* MockLunchView.swift */,
+				7362302127B628A5009C1936 /* MockRestaurantListView.swift */,
 				7362302327B62984009C1936 /* MockLunchService.swift */,
 				7362302727B6342B009C1936 /* MockImageService.swift */,
 				738EDC0227BA460500037BC0 /* MockRestaurantDetailView.swift */,
@@ -356,7 +356,7 @@
 				7362301027B60FF0009C1936 /* RestaurantCollectionViewCell.swift in Sources */,
 				7362303027B797D0009C1936 /* WebViewController.swift in Sources */,
 				73622FF827B5DBE8009C1936 /* Restaurant.swift in Sources */,
-				7362300C27B60363009C1936 /* LunchPresenter.swift in Sources */,
+				7362300C27B60363009C1936 /* RestaurantListViewPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,7 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7362301A27B62816009C1936 /* LunchPresenterTests.swift in Sources */,
-				7362302227B628A5009C1936 /* MockLunchView.swift in Sources */,
+				7362302227B628A5009C1936 /* MockRestaurantListView.swift in Sources */,
 				7362302427B62984009C1936 /* MockLunchService.swift in Sources */,
 				738EDC0127BA45E500037BC0 /* RestaurantDetailViewPresenterTests.swift in Sources */,
 				7362302627B63114009C1936 /* TestUtils.swift in Sources */,

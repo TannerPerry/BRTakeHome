@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol LunchViewProtocol {
+protocol RestaurantListViewProtocol {
     func restaurantsReceived()
     func imageReceived(image:UIImage, forIndex:Int)
     func navigateToDetailView(withRestaurant:Restaurant)
@@ -19,12 +19,12 @@ class LunchCollectionViewController: UICollectionViewController {
     
     private let reuseIdentifier = "restaurantCell"
     
-    private var lunchPresenter : LunchPresenter?
+    private var presenter : RestaurantListViewPresenter?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        lunchPresenter = LunchPresenter(lunchView: self, lunchService: ServiceLocator.shared.lunchService)
+        presenter = RestaurantListViewPresenter(lunchView: self, lunchService: ServiceLocator.shared.lunchService)
     }
 
     // MARK: UICollectionViewDataSource
@@ -36,14 +36,14 @@ class LunchCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return lunchPresenter?.restaurants.count ?? 0
+        return presenter?.restaurants.count ?? 0
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let restaurantCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! RestaurantCollectionViewCell
             
-        let listModel = lunchPresenter?.getRestaurant(atIndex: indexPath.row)
-        lunchPresenter?.fetchImageForRestaurant(atIndex:indexPath.row)
+        let listModel = presenter?.getRestaurant(atIndex: indexPath.row)
+        presenter?.fetchImageForRestaurant(atIndex:indexPath.row)
     
         restaurantCell.restaurantNameLabel.text = listModel?.name
         restaurantCell.restaurantCategoryLabel.text = listModel?.category
@@ -53,12 +53,12 @@ class LunchCollectionViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDelegate
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        lunchPresenter?.restaurantSelected(atIndex: indexPath.row)
+        presenter?.restaurantSelected(atIndex: indexPath.row)
     }
     
     // MARK: UINavigationBar selectors
     @IBAction func mapButtonPressed(_ sender: Any) {
-        lunchPresenter?.mapSelected()
+        presenter?.mapSelected()
     }
     
     // MARK: Screen changed... do stuff
@@ -95,7 +95,7 @@ extension LunchCollectionViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension LunchCollectionViewController : LunchViewProtocol {
+extension LunchCollectionViewController : RestaurantListViewProtocol {
     public func restaurantsReceived() {
         DispatchQueue.main.async {
             // Got our restaurants. Reload the collection view

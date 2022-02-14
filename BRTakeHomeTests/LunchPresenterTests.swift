@@ -10,13 +10,13 @@ import XCTest
 
 class LunchPresnterTests: XCTestCase {
     
-    var lunchPresenter : LunchPresenter?
-    var mockLunchView = MockLunchView()
+    var presenter : RestaurantListViewPresenter?
+    var mockLunchView = MockRestaurantListView()
     var mocklunchService = MockLunchService()
     
     override func setUpWithError() throws {
-        lunchPresenter = LunchPresenter(lunchView: mockLunchView, lunchService: mocklunchService)
-        if let presenter = lunchPresenter {
+        presenter = RestaurantListViewPresenter(lunchView: mockLunchView, lunchService: mocklunchService)
+        if let presenter = presenter {
             // This is called when the presenter is instantiated so it's fine to do here in setup
             presenter.fetchResaurants()
             
@@ -37,14 +37,14 @@ class LunchPresnterTests: XCTestCase {
     
     func testGetRestaurant_validIndex() {
         // Get our first restaurant.  Mock returns one so there should be a value here.
-        let val = lunchPresenter?.getRestaurant(atIndex: 0)
+        let val = presenter?.getRestaurant(atIndex: 0)
         XCTAssertNotNil(val)
     }
     
     func testFetchImageForRestaurant() {
         
         // Get image for first restaurant
-        lunchPresenter?.fetchImageForRestaurant(atIndex: 0)
+        presenter?.fetchImageForRestaurant(atIndex: 0)
         
         // Make sure that fetch image was called
         XCTAssertTrue(mocklunchService.fetchRestaurantImageCalled)
@@ -57,14 +57,14 @@ class LunchPresnterTests: XCTestCase {
     }
     
     func testRestaurantSelected() {
-        lunchPresenter?.restaurantSelected(atIndex: 0)
+        presenter?.restaurantSelected(atIndex: 0)
         
         XCTAssertTrue(mockLunchView.navigateToDetailViewCalled)
-        XCTAssertEqual(lunchPresenter?.restaurants[0].name, mockLunchView.navigateToDetailViewPassedRestaurant?.name)
+        XCTAssertEqual(presenter?.restaurants[0].name, mockLunchView.navigateToDetailViewPassedRestaurant?.name)
     }
     
     func testMapSelected() {
-        lunchPresenter?.mapSelected()
+        presenter?.mapSelected()
         XCTAssertTrue(mockLunchView.navigateToMapViewCalled)
     }
     

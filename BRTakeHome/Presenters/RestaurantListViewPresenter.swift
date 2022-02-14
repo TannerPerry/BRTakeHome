@@ -1,5 +1,5 @@
 //
-//  LunchPresenter.swift
+//  RestaurantListViewPresenter.swift
 //  BRTakeHome
 //
 //  Created by Tanner Perry on 2/10/22.
@@ -7,13 +7,13 @@
 
 import Foundation
 
-class LunchPresenter {
-    var lunchView    : LunchViewProtocol
+class RestaurantListViewPresenter {
+    var lunchView    : RestaurantListViewProtocol
     var lunchService : LunchServiceProtocol
     
     private var _restaurants : [Restaurant]
     
-    public init(lunchView:LunchViewProtocol, lunchService:LunchServiceProtocol) {
+    public init(lunchView:RestaurantListViewProtocol, lunchService:LunchServiceProtocol) {
         self.lunchView = lunchView
         self.lunchService = lunchService
         self._restaurants = [Restaurant]()

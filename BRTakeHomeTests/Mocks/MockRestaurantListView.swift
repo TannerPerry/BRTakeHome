@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 @testable import BRTakeHome
 
-class MockLunchView : LunchViewProtocol {
+class MockRestaurantListView : RestaurantListViewProtocol {
     
     public var navigateToDetailViewCalled = false
     public var navigateToDetailViewPassedRestaurant : Restaurant?
